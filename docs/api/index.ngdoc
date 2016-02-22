@@ -1,7 +1,8 @@
 @ngdoc overview
-@name angular-gettext
+@module gettext
+@name index
+@title API Reference
 @area api
-@id api-index
 @description Super-simple translation support for Angular.JS
 
 ## Effortless translations

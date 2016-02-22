@@ -80,7 +80,7 @@ angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, ge
          * @name gettextCatalog#translatedMarkerPrefix
          * @public
          * @type {String} [
-         * @description Custom prefix to mark strings that have been run through {@link angular-gettext angular-gettext}.
+         * @description Custom prefix to mark strings that have been run through {@link module:gettext angular-gettext}.
          */
         translatedMarkerPrefix: '[',
         /**
@@ -88,7 +88,7 @@ angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, ge
          * @name gettextCatalog#translatedMarkerSuffix
          * @public
          * @type {String} ]
-         * @description Custom suffix to mark strings that have been run through {@link angular-gettext angular-gettext}.
+         * @description Custom suffix to mark strings that have been run through {@link module:gettext angular-gettext}.
          */
         translatedMarkerSuffix: ']',
         /**
@@ -198,7 +198,7 @@ angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, ge
          * @param {String} language language name
          * @param {String} string translation key
          * @param {Number=} n number to build sting form for
-         * @param {String=} context translation key context, e.g. {@link doc:context Verb, Noun}
+         * @param {String=} context translation key context, e.g. {@link docs:context Verb, Noun}
          * @returns {String|Null} translated or annotated string or null if language is not set
          * @description Translate a string with the given language, count and context.
          */
@@ -218,7 +218,7 @@ angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, ge
          * @public
          * @param {String} string translation key
          * @param {$rootScope.Scope=} scope scope to do interpolation against
-         * @param {String=} context translation key context, e.g. {@link doc:context Verb, Noun}
+         * @param {String=} context translation key context, e.g. {@link docs:context Verb, Noun}
          * @returns {String} translated or annotated string
          * @description Translate a string with the given scope and context.
          *
@@ -248,7 +248,7 @@ angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, ge
          * @param {String} string translation key
          * @param {String} stringPlural plural translation key
          * @param {$rootScope.Scope=} scope scope to do interpolation against
-         * @param {String=} context translation key context, e.g. {@link doc:context Verb, Noun}
+         * @param {String=} context translation key context, e.g. {@link docs:context Verb, Noun}
          * @returns {String} translated or annotated string
          * @see {@link gettextCatalog#getString gettextCatalog#getString} for details
          * @description Translate a plural string with the given context.

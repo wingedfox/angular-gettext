@@ -6,7 +6,7 @@
  * @param {String} input translation key
  * @param {String} context context to evaluate key against
  * @returns {String} translated string or annotated key
- * @see {@link doc:context Verb, Noun}
+ * @see {@link docs:context Verb, Noun}
  * @description Takes key and returns string
  *
  * Sometimes it's not an option to use an attribute (e.g. when you want to annotate an attribute value).

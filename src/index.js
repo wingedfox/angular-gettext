@@ -1,11 +1,12 @@
 /**
  * @ngdoc module
  * @name gettext
+ * @module gettext
  * @packageName angular-gettext
  * @description Super simple Gettext for Angular.JS
  *
  * A sample application can be found at https://github.com/rubenv/angular-gettext-example.
- * This is an adaptation of the [TodoMVC](http://todomvc.com/) example. You can use this as a guideline while adding {@link angular-gettext angular-gettext} to your own application.
+ * This is an adaptation of the [TodoMVC](http://todomvc.com/) example. You can use this as a guideline while adding {@link module:gettext angular-gettext} to your own application.
  */
 /**
  * @ngdoc factory
