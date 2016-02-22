@@ -1,0 +1,8 @@
+@ngdoc overview
+@module gettext
+@title Error Reference
+@name index
+@area error
+@description Runtime errors for `angular-gettext`
+
+Note: All listed errors may be caught in runtime.

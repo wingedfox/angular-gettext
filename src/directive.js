@@ -8,9 +8,11 @@
  * @requires https://docs.angularjs.org/api/ng/service/$compile $compile
  * @requires https://docs.angularjs.org/api/ng/service/$window $window
  * @restrict AE
- * @param {String} [translatePlural] plural form
- * @param {Number} translateN value to watch to substitute correct plural form
- * @param {String} translateContext context value, e.g. {@link doc:context Verb, Noun}
+ * @param {String} translate key to translate
+ * @param {String=} translatePlural plural form
+ * @param {Number=} translateN value to watch to substitute correct plural form
+ * @param {String=} translateContext context value, e.g. {@link docs:context Verb, Noun}
+ * @throws {Error} MissingPlural {@link MissingPlural MissingPlural} for malformed plurals
  * @description Annotates and translates text inside directive
  *
  * Full interpolation support is available in translated strings, so the following will work as expected:
@@ -32,6 +34,24 @@ angular.module('gettext').directive('translate', function (gettextCatalog, $pars
         };
     })();
 
+
+    /**
+     * @ngdoc error
+     * @error
+     * @type Error
+     * @name directive:translate#MissingPlural
+     * @description Error is thrown when either `translate-n` or `translate-plural` attribute is not present
+     *
+     * Plural translation requires the both of these attributes to be defined in order to provide correct
+     * strings.
+     *
+     * Example
+     * ```html
+     *  <span translate-plural="{{count}} ducks"
+     *        translate-n="{{count}}"
+     *        translate>{{count}} duck</span>
+     * ```
+     */
     function assert(condition, missing, found) {
         if (!condition) {
             throw new Error('You should add a ' + missing + ' attribute whenever you add a ' + found + ' attribute.');
@@ -107,7 +127,7 @@ angular.module('gettext').directive('translate', function (gettextCatalog, $pars
 
                     /**
                      * @ngdoc event
-                     * @name translate#gettextLanguageChanged
+                     * @name directive:translate#gettextLanguageChanged
                      * @eventType listen on scope
                      * @description Listens for language updates and changes translation accordingly
                      */

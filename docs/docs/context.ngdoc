@@ -1,0 +1,21 @@
+@ngdoc overview
+@module gettext
+@title Translation Contexts
+@name context
+@area docs
+@description Contexts can be added to strings to be translated. The translation for the same string in a different `context` can be different.
+
+You can use the `translate-context` directive to add contexts.
+
+```html
+<h1 translate-context="Verb" translate>File</h1>
+<h1 translate-context="Noun" translate>File</h1>
+```
+
+In the above example, the translator has to translate "File" twice for the two different contexts.
+
+The contexts will appear in the catalog (as `msgctxt`).
+
+In the application Poedit, the contexts will appear under "Context":
+
+![Poedit context](contexts-poedit.png)
