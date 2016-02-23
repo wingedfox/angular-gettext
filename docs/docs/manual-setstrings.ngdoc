@@ -1,0 +1,31 @@
+@ngdoc overview
+@module gettext
+@title Manual Set Strings
+@name manual-setstrings
+@area docs
+@description Setting strings manually
+
+You can set translated strings by injecting the {@link gettextCatalog gettextCatalog} and using the {@link gettextCatalog#setStrings setStrings} method.
+
+As an example, you may have the following code in your application:
+
+```javascript
+angular.module("myApp").run(function (gettextCatalog) {
+    // Load the strings automatically during initialization.
+    gettextCatalog.setStrings("nl", {
+        "Hello": "Hallo",
+        "One boat": ["Een boot", "{{$count}} boats"]
+    });
+});
+```
+
+The {@link gettextCatalog#setStrings setStrings} method accepts two parameters:
+
+1. `language`: A language code.
+2. `strings`: A dictionary of strings. The format of this dictionary is:
+
+   * Keys: Singular English strings (as defined in the source files)
+   * Values: Either a single string for signular-only strings or an array of plural forms.
+
+Converting translated `.po` files into angular-compatible JavaScript files can be done automatically using the `[grunt-angular-gettext](https://github.com/rubenv/grunt-angular-gettext)
+ module ({@link guide:compile instructions on how to do this}).

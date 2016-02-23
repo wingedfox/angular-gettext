@@ -9,6 +9,24 @@
  * @requires https://docs.angularjs.org/api/ng/service/$interpolate $interpolate
  * @requires https://docs.angularjs.org/api/ng/service/$rootScope $rootScope
  * @description Provides set of method to translate stings
+         * @example
+   <example>
+     <file name="index.html">
+      <button ng-click="count = count + 1" ng-init="count=0">
+        Increment
+      </button>
+      <span>
+        count: {{count}}
+      </span>
+     </file>
+     <file name="protractor.js" type="protractor">
+       it('should check ng-click', function() {
+         expect(element(by.binding('count')).getText()).toMatch('0');
+         element(by.css('button')).click();
+         expect(element(by.binding('count')).getText()).toMatch('1');
+       });
+     </file>
+   </example>
  */
 angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, gettextFallbackLanguage, $http, $cacheFactory, $interpolate, $rootScope) {
     var catalog;
@@ -158,7 +176,7 @@ angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, ge
          * @public
          * @param {String} language language name
          * @param {Object.<String>} strings set of strings where the key is the translation `key` and `value` is the translated text
-         * @description Processes an object of string definitions. {@link guide:manual-setstrings More details here}.
+         * @description Processes an object of string definitions. {@link docs:manual-setstrings More details here}.
          */
         setStrings: function (language, strings) {
             if (!this.strings[language]) {
@@ -273,7 +291,7 @@ angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, ge
          * @description Load a set of translation strings from a given URL.
          *
          * This should be a JSON catalog generated with [angular-gettext-tools](https://github.com/rubenv/angular-gettext-tools).
-         * {@link guide:lazy-loading More details here}.
+         * {@link docs:lazy-loading More details here}.
          */
         loadRemote: function (url) {
             return $http({

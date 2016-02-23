@@ -37,9 +37,10 @@ angular.module('gettext').directive('translate', function (gettextCatalog, $pars
 
     /**
      * @ngdoc error
+     * @module gettext
      * @error
      * @type Error
-     * @name directive:translate#MissingPlural
+     * @name MissingPlural
      * @description Error is thrown when either `translate-n` or `translate-plural` attribute is not present
      *
      * Plural translation requires the both of these attributes to be defined in order to provide correct

@@ -17,7 +17,7 @@
  * ```
  * This filter does not support plural strings.
  *
- * You may want to use {@link guide:custom-annotations custom annotations} to avoid using the `translate` filter all the time. * Is
+ * You may want to use {@link docs:custom-annotations custom annotations} to avoid using the `translate` filter all the time.
  */
 angular.module('gettext').filter('translate', function (gettextCatalog) {
     function filter(input, context) {
