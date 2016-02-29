@@ -1,4 +1,6 @@
 module.exports = function (grunt) {
+
+console.log(require('dgeni-alive')());
     grunt.loadNpmTasks("grunt-bump");
     grunt.loadNpmTasks("grunt-contrib-clean");
     grunt.loadNpmTasks("grunt-contrib-concat");
@@ -10,6 +12,34 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-karma");
     grunt.loadNpmTasks("grunt-ng-annotate");
     grunt.loadNpmTasks("dgeni-alive");
+
+    // Project configuration for Dgeni, to be moved to grunt settings
+    require('dgeni-alive/tasks/dgeni-alive').docgen.package().config(function(generateExamplesProcessor, generateProtractorTestsProcessor) {
+      var cdnUrl = '//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/';
+      var deployments = {
+        name: 'default',
+          examples: {
+            commonFiles: {
+              scripts: [
+                cdnUrl + 'angular.min.js',
+                'dist/angular-gettext.js' 
+              ]
+            },
+            dependencyPath: cdnUrl
+          },
+          scripts: [
+            cdnUrl + 'angular.min.js',
+            '../dist/angular-gettext.js'
+          ],
+          stylesheets: [
+          ]
+      };
+      generateExamplesProcessor.deployments = [ deployments ];
+      generateProtractorTestsProcessor.deployments = [ deployments ];
+    })
+    .config(function (renderDocsProcessor) {
+      renderDocsProcessor.extraData.deploymentTarget = 'default';
+    });
 
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
@@ -165,6 +195,8 @@ module.exports = function (grunt) {
             }
         }
     });
+
+
 
     grunt.registerTask("default", ["test"]);
     grunt.registerTask("build", ["clean", "jshint", "jscs", "concat", "ngAnnotate", "uglify"]);

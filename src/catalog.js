@@ -9,6 +9,139 @@
  * @requires https://docs.angularjs.org/api/ng/service/$interpolate $interpolate
  * @requires https://docs.angularjs.org/api/ng/service/$rootScope $rootScope
  * @description Provides set of method to translate stings
+ * @example
+ * This example shows translations behaviour with different settings.
+  <example module="gettextExample" name="gettextExample">
+    <file name="index.html">
+      <div ng-controller="GettextController as gtx">
+        <section class="left">
+          <label>
+            <span>Translation:</span>
+            <select
+              aria-label="current language"
+              ng-model="gtx.options.currentLanguage"
+              ng-change="gtx.options.setCurrentLanguage(gtx.options.currentLanguage)">
+              <option ng-repeat="(k, lang) in gtx.options.strings" value="{{k}}">{{k}}</option>
+            </select>
+          </label>
+          <label>
+          <span>Debug mode:</span>
+            <input type="checkbox"
+              ng-model="gtx.options.debug"
+              ng-change="gtx.update()"
+              aria-label="debug mode"/></label>
+          <label>
+            <span>Debug prefix:</span>
+            <input type="text"
+              ng-model="gtx.options.debugPrefix"
+              ng-change="gtx.update()"
+              placeholder="non-translated string prefix"
+              aria-label="debug prefix for untranslated strings" /></label>
+          <label>
+            <span>Show translated markers:</span>
+            <input type="checkbox"
+              ng-model="gtx.options.showTranslatedMarkers"
+              ng-change="gtx.update()"
+              aria-label="debug mode" /></label>
+          <label>
+            <span>Translated marker prefix:</span>
+            <input type="text"
+              ng-model="gtx.options.translatedMarkerPrefix"
+              ng-change="gtx.update()"
+              placeholder="translated string prefix"
+              aria-label="translated strings prefix for debug mode" /></label>
+          <label>
+            <span>Translated marker suffix:</span>
+            <input type="text"
+              ng-model="gtx.options.translatedMarkerSuffix"
+              ng-change="gtx.update()"
+              placeholder="translated string suffix"
+              aria-label="translated strings prefix for debug mode" /></label>
+        </section>
+        <section class="right">
+          <label>
+            <span>Your name:</span>
+            <input type="text" ng-model="gtx.name" placeholder="enter your name" aria-label="your name"/></label>
+          <label>
+            <span>"Hello" string</span>
+            <input type="text"
+              ng-change="gtx.update()"
+              ng-model="gtx.options.strings[gtx.options.currentLanguage]['Hi, \{\{gtx.name\}\}!'].$$noContext[0]" placeholder="{{'Hi, {{gtx.name}\}!'}}" aria-label="Hello string"/></label>
+          <label>
+            <span>"Bye" string</span>
+            <input type="text"
+              ng-change="gtx.update()"
+              ng-model="gtx.options.strings[gtx.options.currentLanguage]['Bye, \{\{gtx.name\}\}!'].$$noContext[0]" placeholder="{{'Bye, {{gtx.name}\}!'}}" aria-label="Bye string"/></label>
+        </section>
+        <ul>
+          <li class="translation">
+            <span>Translation: {{gtx.options.currentLanguage}}</span>
+            <ul>
+              <li>
+                <span translate>Hi, {{gtx.name}}!</span>
+              </li>
+              <li>
+                <span translate>Bye, {{gtx.name}}!</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </file>
+    <file name="script.js">
+      angular.module('gettextExample', ['gettext']).controller('GettextController', function($scope, gettextCatalog) {
+        gettextCatalog.debug = true;
+        gettextCatalog.showTranslatedMarkers = true;
+        gettextCatalog.translatedMarkerPrefix = '->';
+        gettextCatalog.translatedMarkerSuffix = '<-';
+        gettextCatalog.currentLanguage = 'nl';
+        gettextCatalog.setStrings('en-US', {
+          'Hi, {{gtx.name}}!': 'Hello, {{gtx.name}}!',
+          'Bye, {{gtx.name}}!': '',
+        });
+        gettextCatalog.setStrings('es-ES', {
+          'Hi, {{gtx.name}}!': '',
+          'Bye, {{gtx.name}}!': '¡Adious, {{gtx.name}}!',
+        })
+        gettextCatalog.setStrings('nl', {
+          'Hi, {{gtx.name}}!': 'Halo, {{gtx.name}}!',
+          'Bye, {{gtx.name}}!': 'Doei, {{gtx.name}}!',
+        });
+
+        this.name = 'Ruben';
+        this.options = gettextCatalog;
+
+        this.update = function () {
+          // a kind of hack, service settings are not tracked for real time changes
+          $scope.$root.$broadcast('gettextLanguageChanged');
+        }
+      });
+    </file>
+    <file name="style.css">
+      select,
+      input[type=text] {
+          width: 200px;
+      }
+      .translation {
+        display: inline-block;
+        list-style: none;
+      }
+      label {
+        display: block;
+      }
+      label > span {
+        display: inline-block;
+        width: 250px;
+      }
+      section {
+        display: inline-block;
+        padding: 5px;
+      }
+      section.right > label > span {
+        width: 120px;
+      }
+    </file>
+    </example>
  */
 angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, gettextFallbackLanguage, $http, $cacheFactory, $interpolate, $rootScope) {
     var catalog;
