@@ -1,6 +1,5 @@
 module.exports = function (grunt) {
 
-console.log(require('dgeni-alive')());
     grunt.loadNpmTasks("grunt-bump");
     grunt.loadNpmTasks("grunt-contrib-clean");
     grunt.loadNpmTasks("grunt-contrib-concat");
