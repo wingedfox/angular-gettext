@@ -13,31 +13,31 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("dgeni-alive");
 
     // Project configuration for Dgeni, to be moved to grunt settings
-    require('dgeni-alive/tasks/dgeni-alive').docgen.package().config(function(generateExamplesProcessor, generateProtractorTestsProcessor) {
-      var cdnUrl = '//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/';
-      var deployments = {
-        name: 'default',
-          examples: {
-            commonFiles: {
-              scripts: [
-                cdnUrl + 'angular.min.js',
-                'dist/angular-gettext.js' 
-              ]
+    require("dgeni-alive/tasks/dgeni-alive").docgen.Package().config(function (generateExamplesProcessor, generateProtractorTestsProcessor) {
+        var cdnUrl = "//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/";
+        var deployments = {
+            name: "default",
+            examples: {
+                commonFiles: {
+                    scripts: [
+                        cdnUrl + "angular.min.js",
+                        "dist/angular-gettext.js"
+                    ]
+                },
+                dependencyPath: cdnUrl
             },
-            dependencyPath: cdnUrl
-          },
-          scripts: [
-            cdnUrl + 'angular.min.js',
-            '../dist/angular-gettext.js'
-          ],
-          stylesheets: [
-          ]
-      };
-      generateExamplesProcessor.deployments = [ deployments ];
-      generateProtractorTestsProcessor.deployments = [ deployments ];
+            scripts: [
+                cdnUrl + "angular.min.js",
+                "../dist/angular-gettext.js"
+            ],
+            stylesheets: [
+            ]
+        };
+        generateExamplesProcessor.deployments = [ deployments ];
+        generateProtractorTestsProcessor.deployments = [ deployments ];
     })
     .config(function (renderDocsProcessor) {
-      renderDocsProcessor.extraData.deploymentTarget = 'default';
+        renderDocsProcessor.extraData.deploymentTarget = "default";
     });
 
     grunt.initConfig({

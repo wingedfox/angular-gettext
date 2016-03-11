@@ -40,26 +40,31 @@ A conceptual overview and instructions on how to add angular-gettext to your app
 </div>
 
 ## Advanced topics
-.row
-    .col-sm-4
-        h3: a(href="/dev-guide/annotate-js/") Annotating in JavaScript code
-        p Making strings in your source code translatable.
+<div flex layout-gt-md="row" layout-sm-md="column" layout-padding>
+ <div flex>
+  <h3>{@link guide:annotate-js Annotating in JavaScript code}</h3>
+  Making strings in your source code translatable.
+ </div>
+ <div flex>
+  <h3>{@link guide:manual-setstrings Settings strings}</h3>
+  Manually define strings in the catalog.
+ </div>
+</div>
+<div flex layout-gt-md="row" layout-sm-md="column" layout-padding>
+ <div flex>
+  <h3>{@link guide:lazy-loading Lazy-loading languages}</h3>
+  Load language strings only when they are needed.
+ </div>
+ <div flex>
+  <h3>{@link guide:custom-annotations Custom annotations}</h3>
+  Extract translations from custom attributes
+ </div>
+</div>
 
-    .col-sm-4
-        h3: a(href="/dev-guide/manual-setstrings/") Settings strings
-        p Manually define strings in the catalog.
-
-    .col-sm-4
-        h3: a(href="/dev-guide/lazy-loading/") Lazy-loading languages
-        p Load language strings only when they are needed.
-
-.row
-    .col-sm-4
-        h3: a(href="/dev-guide/custom-annotations/") Custom annotations
-        p Extract translations from custom attributes
-
-h2 API Reference
-.row
-    .col-sm-4
-        h3: a(href="/dev-guide/api/angular-gettext/") angular-gettext
-        p API reference for the client-side library.
+## API Reference
+<div flex layout-gt-md="row" layout-sm-md="column" layout-padding>
+ <div flex>
+  <h3>{@link api angular-gettext}</h3>
+  API reference for the client-side library.
+ </div>
+</div>
