@@ -8,7 +8,7 @@
  * @requires https://docs.angularjs.org/api/ng/service/$compile $compile
  * @requires https://docs.angularjs.org/api/ng/service/$window $window
  * @restrict AE
- * @param {String} translate key to translate
+ * @param {Boolean} translate node value is used as a translation key
  * @param {String=} translatePlural plural form
  * @param {Number=} translateN value to watch to substitute correct plural form
  * @param {String=} translateContext context value, e.g. {@link docs:context Verb, Noun}

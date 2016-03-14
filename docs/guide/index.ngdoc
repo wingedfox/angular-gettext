@@ -49,12 +49,12 @@ A conceptual overview and instructions on how to add angular-gettext to your app
   <h3>{@link guide:manual-setstrings Settings strings}</h3>
   Manually define strings in the catalog.
  </div>
-</div>
-<div flex layout-gt-md="row" layout-sm-md="column" layout-padding>
  <div flex>
   <h3>{@link guide:lazy-loading Lazy-loading languages}</h3>
   Load language strings only when they are needed.
  </div>
+</div>
+<div flex layout-gt-md="row" layout-sm-md="column" layout-padding>
  <div flex>
   <h3>{@link guide:custom-annotations Custom annotations}</h3>
   Extract translations from custom attributes
