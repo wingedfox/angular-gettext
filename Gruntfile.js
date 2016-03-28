@@ -1,6 +1,5 @@
 module.exports = function (grunt) {
 
-console.log(require('dgeni-alive')());
     grunt.loadNpmTasks("grunt-bump");
     grunt.loadNpmTasks("grunt-contrib-clean");
     grunt.loadNpmTasks("grunt-contrib-concat");
@@ -12,34 +11,6 @@ console.log(require('dgeni-alive')());
     grunt.loadNpmTasks("grunt-karma");
     grunt.loadNpmTasks("grunt-ng-annotate");
     grunt.loadNpmTasks("dgeni-alive");
-
-    // Project configuration for Dgeni, to be moved to grunt settings
-    require('dgeni-alive/tasks/dgeni-alive').docgen.package().config(function(generateExamplesProcessor, generateProtractorTestsProcessor) {
-      var cdnUrl = '//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/';
-      var deployments = {
-        name: 'default',
-          examples: {
-            commonFiles: {
-              scripts: [
-                cdnUrl + 'angular.min.js',
-                'dist/angular-gettext.js' 
-              ]
-            },
-            dependencyPath: cdnUrl
-          },
-          scripts: [
-            cdnUrl + 'angular.min.js',
-            '../dist/angular-gettext.js'
-          ],
-          stylesheets: [
-          ]
-      };
-      generateExamplesProcessor.deployments = [ deployments ];
-      generateProtractorTestsProcessor.deployments = [ deployments ];
-    })
-    .config(function (renderDocsProcessor) {
-      renderDocsProcessor.extraData.deploymentTarget = 'default';
-    });
 
     grunt.initConfig({
         pkg: grunt.file.readJSON("package.json"),
@@ -126,17 +97,17 @@ console.log(require('dgeni-alive')());
         karma: {
             unit: {
                 configFile: "test/configs/unit.conf.js",
-                browsers: ["PhantomJS2"],
+                browsers: ["PhantomJS"],
                 background: true
             },
             unit_nojquery: {
                 configFile: "test/configs/unit-nojquery.conf.js",
-                browsers: ["PhantomJS2"],
+                browsers: ["PhantomJS"],
                 background: true
             },
             unitci: {
                 configFile: "test/configs/unit.conf.js",
-                browsers: ["Firefox", "PhantomJS2"],
+                browsers: ["Firefox", "PhantomJS"],
                 singleRun: true,
                 reporters: ["dots", "junit"],
                 junitReporter: {
@@ -145,7 +116,7 @@ console.log(require('dgeni-alive')());
             },
             unitci_nojquery: {
                 configFile: "test/configs/unit-nojquery.conf.js",
-                browsers: ["Firefox", "PhantomJS2"],
+                browsers: ["Firefox", "PhantomJS"],
                 singleRun: true,
                 reporters: ["dots", "junit"],
                 junitReporter: {
@@ -154,12 +125,12 @@ console.log(require('dgeni-alive')());
             },
             e2e: {
                 configFile: "test/configs/e2e.conf.js",
-                browsers: ["PhantomJS2"],
+                browsers: ["PhantomJS"],
                 background: true
             },
             e2eci: {
                 configFile: "test/configs/e2e.conf.js",
-                browsers: ["Firefox", "PhantomJS2"],
+                browsers: ["Firefox", "PhantomJS"],
                 singleRun: true,
                 reporters: ["dots", "junit"],
                 junitReporter: {
