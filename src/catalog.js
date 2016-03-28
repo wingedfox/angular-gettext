@@ -1,13 +1,13 @@
 /**
- * @ngdoc service
+ * @ngdoc factory
  * @module gettext
  * @name gettextCatalog
  * @requires gettextPlurals
  * @requires gettextFallbackLanguage
- * @requires https://docs.angularjs.org/api/ng/service/$http $http
- * @requires https://docs.angularjs.org/api/ng/service/$cacheFactory $cacheFactory
- * @requires https://docs.angularjs.org/api/ng/service/$interpolate $interpolate
- * @requires https://docs.angularjs.org/api/ng/service/$rootScope $rootScope
+ * @requires ng.service.$http
+ * @requires ng.service.$cacheFactory
+ * @requires ng.service.$interpolate
+ * @requires ng.type.$rootScope.Scope
  * @description Provides set of method to translate stings
  * @example
  * This example shows translations behaviour with different settings.
@@ -143,7 +143,7 @@
     </file>
     </example>
  */
-angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, gettextFallbackLanguage, $http, $cacheFactory, $interpolate, $rootScope) {
+angular.module('gettext').factory('gettextCatalog', function gettextCatalog (gettextPlurals, gettextFallbackLanguage, $http, $cacheFactory, $interpolate, $rootScope) {
     var catalog;
     var noContext = '$$noContext';
 
@@ -154,7 +154,7 @@ angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, ge
     var test = '<span id="test" title="test" class="tested">test</span>';
     var isHTMLModified = (angular.element('<span>' + test + '</span>').html() !== test);
 
-    var prefixDebug = function (string) {
+    function prefixDebug (string) {
         if (catalog.debug && catalog.currentLanguage !== catalog.baseLanguage) {
             return catalog.debugPrefix + string;
         } else {
@@ -162,7 +162,7 @@ angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, ge
         }
     };
 
-    var addTranslatedMarkers = function (string) {
+    function addTranslatedMarkers (string) {
         if (catalog.showTranslatedMarkers) {
             return catalog.translatedMarkerPrefix + string + catalog.translatedMarkerSuffix;
         } else {
@@ -350,7 +350,7 @@ angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, ge
          * @name gettextCatalog#getString
          * @public
          * @param {String} string translation key
-         * @param {$rootScope.Scope=} scope scope to do interpolation against
+         * @param {ng.type.$rootScope.Scope=} scope scope to do interpolation against
          * @param {String=} context translation key context, e.g. {@link docs:context Verb, Noun}
          * @returns {String} translated or annotated string
          * @description Translate a string with the given scope and context.
@@ -380,7 +380,7 @@ angular.module('gettext').factory('gettextCatalog', function (gettextPlurals, ge
          * @param {Number} n number to build sting form for
          * @param {String} string translation key
          * @param {String} stringPlural plural translation key
-         * @param {$rootScope.Scope=} scope scope to do interpolation against
+         * @param {ng.type.$rootScope.Scope=} scope scope to do interpolation against
          * @param {String=} context translation key context, e.g. {@link docs:context Verb, Noun}
          * @returns {String} translated or annotated string
          * @see {@link gettextCatalog#getString gettextCatalog#getString} for details

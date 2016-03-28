@@ -26,7 +26,7 @@
  */
 angular.module('gettext', []);
 /**
- * @ngdoc object
+ * @ngdoc function
  * @module gettext
  * @name gettext
  * @kind function
