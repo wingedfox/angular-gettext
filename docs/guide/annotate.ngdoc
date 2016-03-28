@@ -76,7 +76,7 @@ The contexts will appear in the catalog (as `msgctxt`).
 
 In the application [Poedit](http://poedit.net/), the contexts will appear under "Context":
 
-![Contexts Poedit](contexts-poedit.png)
+![Contexts Poedit](../docs/contexts-poedit.png)
 
 ## Comments
 
@@ -95,4 +95,4 @@ In the application [Poedit](http://poedit.net/), the comment will appear under "
 
 ![Comments Poedit](annotate-comments-poedit.png)
 
-<a href="/dev-guide/extract/" class="btn btn-primary">Next: Extracting strings</a>
+{@link guide:extract Next: Extracting strings}

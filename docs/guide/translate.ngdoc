@@ -2,7 +2,7 @@
 @module gettext
 @title Translating
 @name translate
-@area docs
+@area guide
 @description Translate strings
 
 There is a wide range of translation tools available in the gettext ecosystem. Some of the are listed on [Wikipedia](http://en.wikipedia.org/wiki/Gettext#See_also).
@@ -63,4 +63,4 @@ If you make changes to your project, simply run `grunt` again to generate a new 
 
 3. Update your translations as usual and remember to save your work.
 
-<a href="/dev-guide/compile/" class="btn btn-primary">Next: Compiling your translations</a>
+{@link guide:compile Next: Compiling your translations}

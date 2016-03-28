@@ -1,0 +1,50 @@
+@ngdoc overview
+@module gettext
+@title Getting started
+@name index
+@area docs
+@fullscreen
+@description
+The main goal of angular-gettext is to make it extremely simple to use. Here's how it works, conceptually:
+
+<div flex layout-gt-md="row" layout-sm-md="column" layout-padding>
+ <div flex>
+  <h3>1</h3>
+  Write your application as usual, in English.
+  <br/>
+  ![Step 1](step1.png)
+ </div>
+ <div flex>
+  <h3>2</h3>
+  Annotate the strings that should be translated.
+  <br/>
+  ![Step 2](step2.png)
+ </div>
+ <div flex>
+  <h3>3</h3>
+  Use the angular-gettext tools to extract those strings to a translation template.
+  <br/>
+  ![Step 3](step3.png)
+ </div>
+ <div flex>
+  <h3>4</h3>
+  Once translated, use the same tools to embed the translations back into your application.
+  <br/>
+  ![Step 4](step4.png)
+ </div>
+</div>
+
+## Sample application
+
+A sample application can be found at [https://github.com/rubenv/angular-gettext-example](https://github.com/rubenv/angular-gettext-example).
+This is an adaptation of the [TodoMVC](http://todomvc.com/) example. You can use this as a guideline while adding angular-gettext to your own application.
+
+## Next steps
+
+* {@link guide:install Add angular-gettext to your project}.
+* {@link guide:annotate Annotate strings with the `translate` directive}.
+* {@link guide:extract Extract strings from the source code}.
+* {@link guide:translate Translate strings}.
+* {@link guide:compile Integrate translated strings back into the application}.
+* {@link guide:configure Set the correct language for translations}.
+* {@link guide:index Read the rest of the developer guide}.

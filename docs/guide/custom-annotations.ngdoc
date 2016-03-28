@@ -2,7 +2,7 @@
 @module gettext
 @title Custom Annotations
 @name custom-annotations
-@area docs
+@area guide
 @description Using custom annotations
 
 If you're finding yourself having to translate the same attribute all the time, you can tell `gettext` to pick it up as a translation.

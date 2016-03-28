@@ -24,14 +24,15 @@
  * gettextPlurals();         // 1
  * ```
  */
-angular.module('gettext', []);
+angular.module('gettext', [])
 /**
  * @ngdoc function
  * @module gettext
  * @name gettext
- * @kind function
  * @param {String} str annotation key
- * @description Gettext constant function for annotating strings
+ * @description Gettext constant function for annotating strings.
+ *
+ * This function does nothing but it is used by [angular-gettext-tools](https://github.com/rubenv/angular-gettext-tools) for building of a list of strings {@link guide:annotate annotated} in JavaScript code.
  *
  * ```js
  * angular.module('myApp', ['gettext']).config(function(gettext) {
@@ -41,7 +42,7 @@ angular.module('gettext', []);
  * })
  * ```
  */
-angular.module('gettext').constant('gettext', function (str) {
+.constant('gettext', function gettext(str) {
     /*
      * Does nothing, simply returns the input string.
      *

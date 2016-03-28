@@ -143,7 +143,7 @@
     </file>
     </example>
  */
-angular.module('gettext').factory('gettextCatalog', function gettextCatalog (gettextPlurals, gettextFallbackLanguage, $http, $cacheFactory, $interpolate, $rootScope) {
+angular.module('gettext').factory('gettextCatalog', function gettextCatalog(gettextPlurals, gettextFallbackLanguage, $http, $cacheFactory, $interpolate, $rootScope) {
     var catalog;
     var noContext = '$$noContext';
 
@@ -154,21 +154,21 @@ angular.module('gettext').factory('gettextCatalog', function gettextCatalog (get
     var test = '<span id="test" title="test" class="tested">test</span>';
     var isHTMLModified = (angular.element('<span>' + test + '</span>').html() !== test);
 
-    function prefixDebug (string) {
+    function prefixDebug(string) {
         if (catalog.debug && catalog.currentLanguage !== catalog.baseLanguage) {
             return catalog.debugPrefix + string;
         } else {
             return string;
         }
-    };
+    }
 
-    function addTranslatedMarkers (string) {
+    function addTranslatedMarkers(string) {
         if (catalog.showTranslatedMarkers) {
             return catalog.translatedMarkerPrefix + string + catalog.translatedMarkerSuffix;
         } else {
             return string;
         }
-    };
+    }
 
     function broadcastUpdated() {
         /**
@@ -291,7 +291,7 @@ angular.module('gettext').factory('gettextCatalog', function gettextCatalog (get
          * @public
          * @param {String} language language name
          * @param {Object.<String>} strings set of strings where the key is the translation `key` and `value` is the translated text
-         * @description Processes an object of string definitions. {@link docs:manual-setstrings More details here}.
+         * @description Processes an object of string definitions. {@link guide:manual-setstrings More details here}.
          */
         setStrings: function (language, strings) {
             if (!this.strings[language]) {
@@ -406,7 +406,7 @@ angular.module('gettext').factory('gettextCatalog', function gettextCatalog (get
          * @description Load a set of translation strings from a given URL.
          *
          * This should be a JSON catalog generated with [angular-gettext-tools](https://github.com/rubenv/angular-gettext-tools).
-         * {@link docs:lazy-loading More details here}.
+         * {@link guide:lazy-loading More details here}.
          */
         loadRemote: function (url) {
             return $http({

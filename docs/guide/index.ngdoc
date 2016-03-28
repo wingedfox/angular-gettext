@@ -5,7 +5,7 @@
 @fullscreen
 @description Developer guide
 
-## {@link guide:getting-started Getting started}
+## {@link docs:index Getting started}
 A conceptual overview and instructions on how to add angular-gettext to your application. Start here.
 
 ## Next steps
@@ -64,7 +64,7 @@ A conceptual overview and instructions on how to add angular-gettext to your app
 ## API Reference
 <div flex layout-gt-md="row" layout-sm-md="column" layout-padding>
  <div flex>
-  <h3>{@link api angular-gettext}</h3>
+  <h3>{@link api:index angular-gettext}</h3>
   API reference for the client-side library.
  </div>
 </div>

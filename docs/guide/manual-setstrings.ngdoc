@@ -2,7 +2,7 @@
 @module gettext
 @title Manual Set Strings
 @name manual-setstrings
-@area docs
+@area guide
 @description Setting strings manually
 
 You can set translated strings by injecting the {@link gettextCatalog gettextCatalog} and using the {@link gettextCatalog#setStrings setStrings} method.

@@ -62,4 +62,4 @@ grunt.initConfig({
 })
 ```
 
-<a href="/dev-guide/translate/" class="btn btn-primary">Next: Translating your strings</a>
+{@link guide:translate Next: Translating your strings}

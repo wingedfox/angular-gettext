@@ -1,0 +1,32 @@
+@ngdoc overview
+@module gettext
+@title Configuring angular-gettext
+@name configure
+@area guide
+@description Configuring angular-gettext
+
+## Setting the language
+
+Set the language by setting a language code on the catalog:
+
+```javascript
+angular.module('myApp').run(function (gettextCatalog) {
+    gettextCatalog.setCurrentLanguage('nl');
+});
+```
+
+You can do this anywhere in your application, the use of a `run` block above is just an example.
+
+## Highlighting untranslated strings
+
+You can enable a debugging mode to clearly indicate untranslated strings:
+
+```javascript
+angular.module('myApp').run(function (gettextCatalog) {
+    gettextCatalog.debug = true;
+});
+```
+
+This will prepend `[MISSING]:` to each untranslated string.
+
+{@link guide:index All done! Back to the developer guide.}
