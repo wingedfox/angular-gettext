@@ -13,7 +13,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("dgeni-alive");
 
     // Project configuration for Dgeni, to be moved to grunt settings
-    require("dgeni-alive/tasks/dgeni-alive").docgen.Package().config(function (generateExamplesProcessor, generateProtractorTestsProcessor) {
+    require("dgeni-alive/tasks/dgeni-alive").docgen.Package([
+        "dgeni-alive/src/packages/jsdoc-ext",
+        "dgeni-alive/src/packages/ngdoc-ext",
+        "dgeni-alive/src/packages/links-ext",
+        "dgeni-alive/src/packages/examples-ext"])
+        .config(function (generateExamplesProcessor, generateProtractorTestsProcessor) {
         var cdnUrl = "//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/";
         var deployments = {
             name: "default",
